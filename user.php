@@ -13,13 +13,13 @@ class utilisateurs
     public function register($login, $password, $email, $firstname, $lastname)
     {
         $db = mysqli_connect('localhost', 'root', '', 'classes');
-        $request = 'INSERT INTO `utilisateurs`(`id`, `login`, `password`, `email`, `firstname`, `lastname`) VALUES (null ,[value-2],[value-3],[value-4],[value-5],[value-6])';
-        $query = mysqli_query($db, $request);
+        $request = "INSERT INTO `utilisateurs` (`id`, `login`, `password`, `email`, `firstname`, `lastname`) VALUES (null,'$login', '$password', '$email', '$firstname', '$lastname')";
+        $queryun = mysqli_query($db, $request);
 
-        $req = 'SELECT * FROM utilisateurs';
+        $req = 'SELECT * FROM `utilisateurs`';
         $query = mysqli_query($db, $req);
         $account = mysqli_fetch_all($query);
-        var_dump($account);
+        var_dump($account) ;
         return $account;
     }
 
